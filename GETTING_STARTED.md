@@ -10,7 +10,7 @@ Add the following to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  zypay_flutter_sdk: ^1.0.0
+  zypay_flutter_sdk: ^1.0.1
 ```
 
 Or run:
