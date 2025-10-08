@@ -13,8 +13,7 @@ class OptionSelectionWidget extends StatefulWidget {
   final Future<void> Function(
     BlockchainType blockchain,
     PackageName? packageName,
-  )
-  onSelectBlockchain;
+  ) onSelectBlockchain;
 
   const OptionSelectionWidget({
     super.key,
@@ -157,24 +156,23 @@ class _OptionSelectionWidgetState extends State<OptionSelectionWidget> {
         Wrap(
           spacing: 12,
           runSpacing: 12,
-          children:
-              widget.blockchains.map((blockchain) {
-                final isSelected = _selectedBlockchain == blockchain;
-                return ChoiceChip(
-                  label: Text(blockchain.value),
-                  selected: isSelected,
-                  onSelected: (selected) {
-                    setState(() {
-                      _selectedBlockchain = selected ? blockchain : null;
-                    });
-                  },
-                  selectedColor: Theme.of(context).primaryColor,
-                  labelStyle: TextStyle(
-                    color: isSelected ? Colors.white : Colors.black,
-                    fontWeight: FontWeight.w600,
-                  ),
-                );
-              }).toList(),
+          children: widget.blockchains.map((blockchain) {
+            final isSelected = _selectedBlockchain == blockchain;
+            return ChoiceChip(
+              label: Text(blockchain.value),
+              selected: isSelected,
+              onSelected: (selected) {
+                setState(() {
+                  _selectedBlockchain = selected ? blockchain : null;
+                });
+              },
+              selectedColor: Theme.of(context).primaryColor,
+              labelStyle: TextStyle(
+                color: isSelected ? Colors.white : Colors.black,
+                fontWeight: FontWeight.w600,
+              ),
+            );
+          }).toList(),
         ),
       ],
     );
@@ -193,10 +191,9 @@ class _OptionSelectionWidgetState extends State<OptionSelectionWidget> {
           final isSelected = _selectedPackage == package.name;
           return Card(
             margin: const EdgeInsets.only(bottom: 12),
-            color:
-                isSelected
-                    ? Theme.of(context).primaryColor.withOpacity(0.1)
-                    : null,
+            color: isSelected
+                ? Theme.of(context).primaryColor.withValues(alpha: 0.1)
+                : null,
             child: InkWell(
               onTap: () {
                 setState(() {
@@ -260,8 +257,7 @@ class _OptionSelectionWidgetState extends State<OptionSelectionWidget> {
   }
 
   Widget _buildContinueButton() {
-    final canContinue =
-        _selectedBlockchain != null &&
+    final canContinue = _selectedBlockchain != null &&
         (widget.packages.isEmpty || _selectedPackage != null);
 
     return ElevatedButton(
@@ -270,20 +266,19 @@ class _OptionSelectionWidgetState extends State<OptionSelectionWidget> {
         padding: const EdgeInsets.symmetric(vertical: 16),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
-      child:
-          _isProcessing
-              ? const SizedBox(
-                height: 20,
-                width: 20,
-                child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                ),
-              )
-              : const Text(
-                'Continue',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      child: _isProcessing
+          ? const SizedBox(
+              height: 20,
+              width: 20,
+              child: CircularProgressIndicator(
+                strokeWidth: 2,
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
               ),
+            )
+          : const Text(
+              'Continue',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
     );
   }
 

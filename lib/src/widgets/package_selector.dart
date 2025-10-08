@@ -205,7 +205,7 @@ class _PackageSelectorState extends State<PackageSelector> {
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: _getBlockchainColor(blockchain).withOpacity(0.1),
+                  color: _getBlockchainColor(blockchain).withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Icon(

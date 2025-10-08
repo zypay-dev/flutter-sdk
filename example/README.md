@@ -153,7 +153,7 @@ debug: const DebugConfig(
 For issues and questions:
 - 📧 Email: support@zypay.app
 - 📖 Documentation: [docs.zypay.app](https://docs.zypay.app)
-- 🐛 Issues: [GitHub Issues](https://github.com/zypay/flutter-sdk/issues)
+- 🐛 Issues: [GitHub Issues](https://github.com/zypay-dev/flutter-sdk/issues)
 
 ## License
 

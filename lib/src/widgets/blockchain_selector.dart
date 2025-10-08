@@ -64,7 +64,7 @@ class BlockchainSelector extends StatelessWidget {
                 width: 48,
                 height: 48,
                 decoration: BoxDecoration(
-                  color: _getBlockchainColor(blockchain).withOpacity(0.1),
+                  color: _getBlockchainColor(blockchain).withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Icon(

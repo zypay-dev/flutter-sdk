@@ -363,8 +363,8 @@ flutter run
 ## Support
 
 - **Documentation:** https://docs.zypay.app
-- **GitHub:** https://github.com/zypay/flutter-sdk
-- **Issues:** https://github.com/zypay/flutter-sdk/issues
+- **GitHub:** https://github.com/zypay-dev/flutter-sdk
+- **Issues:** https://github.com/zypay-dev/flutter-sdk/issues
 - **Email:** support@zypay.app
 - **Discord:** https://discord.gg/zypay
 

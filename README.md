@@ -264,7 +264,7 @@ Check out the [example](example/) directory for complete working examples:
 ### Setup
 
 ```bash
-git clone https://github.com/zypay/flutter-sdk.git
+git clone https://github.com/zypay-dev/flutter-sdk.git
 cd flutter-sdk
 flutter pub get
 ```
@@ -316,7 +316,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 📧 Email: support@zypay.app
 - 💬 Discord: [Join our community](https://discord.gg/zypay)
 - 📖 Documentation: [docs.zypay.app](https://docs.zypay.app)
-- 🐛 Issues: [GitHub Issues](https://github.com/zypay/flutter-sdk/issues)
+- 🐛 Issues: [GitHub Issues](https://github.com/zypay-dev/flutter-sdk/issues)
 
 ## Changelog
 

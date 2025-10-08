@@ -51,7 +51,7 @@ class PaymentDetailsView extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.1),
+              color: Colors.grey.withValues(alpha: 0.1),
               spreadRadius: 2,
               blurRadius: 8,
             ),
@@ -190,7 +190,7 @@ class PaymentDetailsView extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: _getStatusColor(transaction.status).withOpacity(0.1),
+        color: _getStatusColor(transaction.status).withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: _getStatusColor(transaction.status),
