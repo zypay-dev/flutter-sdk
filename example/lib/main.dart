@@ -127,7 +127,7 @@ class HomePage extends StatelessWidget {
 
       // Show the payment widget
       if (context.mounted) {
-        await showDialog(
+        await showDialog<void>(
           context: context,
           barrierDismissible: false,
           builder: (context) => const PaymentWidget(),
@@ -145,8 +145,6 @@ class HomePage extends StatelessWidget {
   }
 
   Future<void> _checkHealth(BuildContext context) async {
-    final zypay = ZypayProvider.of(context);
-
     try {
       // Note: Health check requires an initialized client
       // You may need to initialize payment first or modify the SDK

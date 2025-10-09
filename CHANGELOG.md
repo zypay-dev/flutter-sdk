@@ -107,6 +107,7 @@ N/A - Initial release
 This is the initial public release of the Zypay Flutter SDK. It provides a complete solution for integrating blockchain payments into Flutter applications with support for multiple blockchains, real-time updates, and a beautiful UI.
 
 **Key Highlights:**
+
 - ✅ Production-ready for TON and BSC blockchains
 - ✅ Real-time payment tracking
 - ✅ Beautiful, responsive UI out of the box
@@ -116,6 +117,7 @@ This is the initial public release of the Zypay Flutter SDK. It provides a compl
 - ✅ Example app included
 
 **Getting Started:**
+
 ```dart
 ZypayProvider(
   config: ZypayConfig(
@@ -131,4 +133,3 @@ For detailed documentation, visit [docs.zypay.app](https://docs.zypay.app)
 ---
 
 Made with ❤️ by the Zypay Team
-

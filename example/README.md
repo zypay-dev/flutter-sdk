@@ -18,13 +18,13 @@ This is an example application demonstrating how to use the Zypay Flutter SDK fo
 cd example
 ```
 
-2. Install dependencies:
+1. Install dependencies:
 
 ```bash
 flutter pub get
 ```
 
-3. Update the API token in `lib/main.dart`:
+1. Update the API token in `lib/main.dart`:
 
 ```dart
 ZypayConfig(
@@ -59,7 +59,7 @@ flutter run -d chrome
 
 ## Code Structure
 
-```
+```bash
 lib/
   └── main.dart          # Main application entry point
 ```
@@ -151,7 +151,8 @@ debug: const DebugConfig(
 ## Support
 
 For issues and questions:
-- 📧 Email: support@zypay.app
+
+- 📧 Email: <support@zypay.app>
 - 📖 Documentation: [docs.zypay.app](https://docs.zypay.app)
 - 🐛 Issues: [GitHub Issues](https://github.com/zypay-dev/flutter-sdk/issues)
 

@@ -16,7 +16,7 @@ First off, thank you for considering contributing to Zypay Flutter SDK! It's peo
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by our Code of Conduct. By participating, you are expected to uphold this code. Please report unacceptable behavior to support@zypay.app.
+This project and everyone participating in it is governed by our Code of Conduct. By participating, you are expected to uphold this code. Please report unacceptable behavior to <support@zypay.app>.
 
 ### Our Standards
 
@@ -80,29 +80,34 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 ### Setup Instructions
 
 1. Clone your fork:
+
 ```bash
 git clone https://github.com/your-username/flutter-sdk.git
 # Original repository: https://github.com/zypay-dev/flutter-sdk.git
 cd flutter-sdk
 ```
 
-2. Install dependencies:
+1. Install dependencies:
+
 ```bash
 flutter pub get
 ```
 
-3. Run the example app:
+1. Run the example app:
+
 ```bash
 cd example
 flutter run
 ```
 
-4. Run tests:
+1. Run tests:
+
 ```bash
 flutter test
 ```
 
-5. Run analyzer:
+1. Run analyzer:
+
 ```bash
 flutter analyze
 ```
@@ -115,7 +120,7 @@ Follow the official [Dart Style Guide](https://dart.dev/guides/language/effectiv
 
 ### Code Structure
 
-```
+```bash
 lib/
 ├── src/
 │   ├── core/              # Core business logic
@@ -158,7 +163,7 @@ lib/
 
 ### Commit Message Format
 
-```
+```html
 <type>(<scope>): <subject>
 
 <body>
@@ -178,7 +183,7 @@ lib/
 
 ### Examples
 
-```
+```text
 feat(payment): add support for Ethereum blockchain
 
 Implement Ethereum blockchain integration with Web3 support.
@@ -187,7 +192,7 @@ Includes wallet connection and transaction processing.
 Closes #123
 ```
 
-```
+```text
 fix(ui): resolve QR code rendering issue on iOS
 
 The QR code was not displaying correctly on iOS devices due to
@@ -310,6 +315,7 @@ Future<Transaction> processTransaction({
 ### README Updates
 
 When adding new features, update:
+
 - Feature list
 - Usage examples
 - API reference
@@ -318,7 +324,8 @@ When adding new features, update:
 ## Questions?
 
 Feel free to reach out:
-- 📧 Email: support@zypay.app
+
+- 📧 Email: <support@zypay.app>
 - 💬 Discord: [Join our community](https://discord.gg/zypay)
 - 📖 Documentation: [docs.zypay.app](https://docs.zypay.app)
 
@@ -329,4 +336,3 @@ By contributing, you agree that your contributions will be licensed under the MI
 ---
 
 Thank you for contributing to Zypay Flutter SDK! 🚀
-

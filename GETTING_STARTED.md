@@ -298,6 +298,7 @@ More blockchains coming soon!
 Main provider widget that should wrap your app.
 
 **Properties:**
+
 - `token` (String, required) - Your Zypay API token
 - `config` (ZypayConfig?, optional) - Configuration options
 - `child` (Widget, required) - Your app widget
@@ -307,6 +308,7 @@ Main provider widget that should wrap your app.
 Pre-built payment button widget.
 
 **Properties:**
+
 - `userId` (String, required) - User identifier
 - `buttonText` (String?, optional) - Button text (default: "Make Payment")
 - `buttonStyle` (ButtonStyle?, optional) - Custom button style
@@ -322,6 +324,7 @@ Pre-built payment button widget.
 Service class for direct API access.
 
 **Methods:**
+
 - `initialize(String userId)` - Initialize payment for a user
 - `getOptions()` - Get available payment options
 - `getRecentTransactions()` - Get recent transactions
@@ -348,7 +351,8 @@ flutter run
 
 ### Issue: Socket connection fails
 
-**Solution:** 
+**Solution:**
+
 - Check your internet connection
 - Verify the `hostUrl` in your configuration
 - Ensure your API token is valid
@@ -356,17 +360,18 @@ flutter run
 ### Issue: Payment modal not showing
 
 **Solution:**
+
 - Make sure your widget is wrapped with `ZypayProvider`
 - Ensure the `userId` is valid
 - Check debug logs for initialization errors
 
 ## Support
 
-- **Documentation:** https://docs.zypay.app
-- **GitHub:** https://github.com/zypay-dev/flutter-sdk
-- **Issues:** https://github.com/zypay-dev/flutter-sdk/issues
-- **Email:** support@zypay.app
-- **Discord:** https://discord.gg/zypay
+- **Documentation:** <https://docs.zypay.app>
+- **GitHub:** <https://github.com/zypay-dev/flutter-sdk>
+- **Issues:** <https://github.com/zypay-dev/flutter-sdk/issues>
+- **Email:** <support@zypay.app>
+- **Discord:** <https://discord.gg/zypay>
 
 ## Next Steps
 
@@ -376,4 +381,3 @@ flutter run
 4. Deploy to production
 
 For more examples and advanced usage, check out the [examples](lib/examples/basic_usage.dart) directory and the [API documentation](README.md).
-

@@ -313,7 +313,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- 📧 Email: support@zypay.app
+- 📧 Email: <support@zypay.app>
 - 💬 Discord: [Join our community](https://discord.gg/zypay)
 - 📖 Documentation: [docs.zypay.app](https://docs.zypay.app)
 - 🐛 Issues: [GitHub Issues](https://github.com/zypay-dev/flutter-sdk/issues)
@@ -325,4 +325,3 @@ See [CHANGELOG.md](CHANGELOG.md) for a list of changes and version history.
 ---
 
 Made with ❤️ by the Zypay Team
-
