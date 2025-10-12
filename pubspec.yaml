@@ -1,6 +1,6 @@
 name: zypay_flutter_sdk
 description: A comprehensive Flutter SDK for blockchain payment processing with support for multiple blockchains including TON and BSC.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/zypay-dev/flutter-sdk
 repository: https://github.com/zypay-dev/flutter-sdk.git
 issue_tracker: https://github.com/zypay-dev/flutter-sdk/issues
