@@ -77,20 +77,20 @@ enum PaymentStatus {
 
 /// Authentication credentials for Zypay SDK
 class PaymentAuth extends Equatable {
+  const PaymentAuth({required this.userId, required this.token});
+
+  factory PaymentAuth.fromJson(Map<String, dynamic> json) => PaymentAuth(
+        userId: json['user_id'] as String,
+        token: json['token'] as String,
+      );
+
   /// Unique identifier for the user
   final String userId;
 
   /// API token for authentication
   final String token;
 
-  const PaymentAuth({required this.userId, required this.token});
-
   Map<String, dynamic> toJson() => {'user_id': userId, 'token': token};
-
-  factory PaymentAuth.fromJson(Map<String, dynamic> json) => PaymentAuth(
-        userId: json['user_id'] as String,
-        token: json['token'] as String,
-      );
 
   @override
   List<Object?> get props => [userId, token];
@@ -98,6 +98,20 @@ class PaymentAuth extends Equatable {
 
 /// Payment error interface
 class PaymentError extends Equatable {
+  const PaymentError({
+    required this.code,
+    required this.message,
+    this.field,
+    this.retryable = false,
+  });
+
+  factory PaymentError.fromJson(Map<String, dynamic> json) => PaymentError(
+        code: json['code'] as String,
+        message: json['message'] as String,
+        field: json['field'] as String?,
+        retryable: json['retryable'] as bool? ?? false,
+      );
+
   /// Error code
   final String code;
 
@@ -110,26 +124,12 @@ class PaymentError extends Equatable {
   /// Whether the error is retryable
   final bool retryable;
 
-  const PaymentError({
-    required this.code,
-    required this.message,
-    this.field,
-    this.retryable = false,
-  });
-
   Map<String, dynamic> toJson() => {
         'code': code,
         'message': message,
         if (field != null) 'field': field,
         'retryable': retryable,
       };
-
-  factory PaymentError.fromJson(Map<String, dynamic> json) => PaymentError(
-        code: json['code'] as String,
-        message: json['message'] as String,
-        field: json['field'] as String?,
-        retryable: json['retryable'] as bool? ?? false,
-      );
 
   @override
   List<Object?> get props => [code, message, field, retryable];
@@ -141,15 +141,20 @@ class PaymentError extends Equatable {
 
 /// Package information
 class Package extends Equatable {
-  final PackageName name;
-  final String? description;
-  final double subscriptionFee;
-
   const Package({
     required this.name,
     this.description,
     required this.subscriptionFee,
   });
+
+  factory Package.fromJson(Map<String, dynamic> json) => Package(
+        name: PackageName.fromString(json['name'] as String),
+        description: json['description'] as String?,
+        subscriptionFee: (json['subscription_fee'] as num).toDouble(),
+      );
+  final PackageName name;
+  final String? description;
+  final double subscriptionFee;
 
   Map<String, dynamic> toJson() => {
         'name': name.value,
@@ -157,23 +162,12 @@ class Package extends Equatable {
         'subscription_fee': subscriptionFee,
       };
 
-  factory Package.fromJson(Map<String, dynamic> json) => Package(
-        name: PackageName.fromString(json['name'] as String),
-        description: json['description'] as String?,
-        subscriptionFee: (json['subscription_fee'] as num).toDouble(),
-      );
-
   @override
   List<Object?> get props => [name, description, subscriptionFee];
 }
 
 /// Response wrapper
 class ApiResponse<T> {
-  final bool status;
-  final String? message;
-  final T? data;
-  final List<ApiError>? errors;
-
   const ApiResponse({
     required this.status,
     this.message,
@@ -198,6 +192,10 @@ class ApiResponse<T> {
           : null,
     );
   }
+  final bool status;
+  final String? message;
+  final T? data;
+  final List<ApiError>? errors;
 
   bool get isSuccess => status;
   bool get isError => !status;
@@ -205,20 +203,19 @@ class ApiResponse<T> {
 
 /// API error
 class ApiError extends Equatable {
-  final String? field;
-  final String message;
-
   const ApiError({this.field, required this.message});
-
-  Map<String, dynamic> toJson() => {
-        if (field != null) 'field': field,
-        'message': message,
-      };
 
   factory ApiError.fromJson(Map<String, dynamic> json) => ApiError(
         field: json['field'] as String?,
         message: json['message'] as String,
       );
+  final String? field;
+  final String message;
+
+  Map<String, dynamic> toJson() => {
+        if (field != null) 'field': field,
+        'message': message,
+      };
 
   @override
   List<Object?> get props => [field, message];
@@ -226,10 +223,6 @@ class ApiError extends Equatable {
 
 /// Paginated response
 class PaginatedResponse<T> extends Equatable {
-  final int total;
-  final List<T> list;
-  final bool hasNext;
-
   const PaginatedResponse({
     required this.total,
     required this.list,
@@ -248,6 +241,9 @@ class PaginatedResponse<T> extends Equatable {
       hasNext: json['has_next'] as bool,
     );
   }
+  final int total;
+  final List<T> list;
+  final bool hasNext;
 
   @override
   List<Object?> get props => [total, list, hasNext];
@@ -255,10 +251,9 @@ class PaginatedResponse<T> extends Equatable {
 
 /// Select blockchain request
 class SelectBlockchain extends Equatable {
+  const SelectBlockchain({required this.blockchain, this.packageName});
   final BlockchainType blockchain;
   final PackageName? packageName;
-
-  const SelectBlockchain({required this.blockchain, this.packageName});
 
   Map<String, dynamic> toJson() => {
         'blockchain': blockchain.value,

@@ -12,9 +12,8 @@ import 'error_widget.dart' as zypay;
 
 /// Main payment widget that manages the payment flow
 class PaymentWidget extends StatelessWidget {
-  final VoidCallback? onClose;
-
   const PaymentWidget({super.key, this.onClose});
+  final VoidCallback? onClose;
 
   @override
   Widget build(BuildContext context) {

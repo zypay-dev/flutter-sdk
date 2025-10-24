@@ -27,35 +27,11 @@ enum DebugLevel {
 }
 
 /// Custom logger function type
-typedef CustomLogger =
-    void Function(DebugLevel level, String message, dynamic data);
+typedef CustomLogger = void Function(
+    DebugLevel level, String message, dynamic data);
 
 /// Debug configuration options
 class DebugConfig {
-  /// Enable debug logging (default: false)
-  final bool enabled;
-
-  /// Log level: error, warn, info, debug (default: info)
-  final DebugLevel level;
-
-  /// Include timestamps in logs (default: true)
-  final bool timestamps;
-
-  /// Include component names in logs (default: true)
-  final bool includeComponent;
-
-  /// Log network requests and responses (default: true)
-  final bool logNetwork;
-
-  /// Log state changes (default: true)
-  final bool logState;
-
-  /// Log performance metrics (default: false)
-  final bool logPerformance;
-
-  /// Custom logger function (optional)
-  final CustomLogger? customLogger;
-
   const DebugConfig({
     this.enabled = false,
     this.level = DebugLevel.info,
@@ -90,6 +66,30 @@ class DebugConfig {
     this.logPerformance = false,
     this.customLogger,
   });
+
+  /// Enable debug logging (default: false)
+  final bool enabled;
+
+  /// Log level: error, warn, info, debug (default: info)
+  final DebugLevel level;
+
+  /// Include timestamps in logs (default: true)
+  final bool timestamps;
+
+  /// Include component names in logs (default: true)
+  final bool includeComponent;
+
+  /// Log network requests and responses (default: true)
+  final bool logNetwork;
+
+  /// Log state changes (default: true)
+  final bool logState;
+
+  /// Log performance metrics (default: false)
+  final bool logPerformance;
+
+  /// Custom logger function (optional)
+  final CustomLogger? customLogger;
 
   /// Copy with updated fields
   DebugConfig copyWith({
@@ -129,11 +129,5 @@ class DebugConfig {
 
 /// Default debug configuration
 const kDefaultDebugConfig = DebugConfig(
-  enabled: false,
   level: DebugLevel.info,
-  timestamps: true,
-  includeComponent: true,
-  logNetwork: true,
-  logState: true,
-  logPerformance: false,
 );

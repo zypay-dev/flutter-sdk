@@ -13,9 +13,9 @@ import '../utils/debug_logger.dart';
 /// Zypay provider for managing payment state
 class ZypayProvider extends InheritedWidget {
   ZypayProvider({
-    super.key,
     required super.child,
     required ZypayConfig config,
+    super.key,
   }) : notifier = ZypayNotifier._(config);
 
   final ZypayNotifier notifier;
@@ -76,9 +76,6 @@ class ZypayNotifier extends ChangeNotifier {
           isOpen: true,
           status: PaymentStatus.loading,
           userId: userId,
-          paymentExpiryMinutes: 15,
-          blockchains: const [],
-          packages: const [],
           onPaymentComplete: onPaymentComplete,
           onPaymentExpired: onPaymentExpired,
           onPaymentFailed: onPaymentFailed,
@@ -230,11 +227,10 @@ class ZypayNotifier extends ChangeNotifier {
 
 /// Consumer widget for ZypayProvider
 class ZypayConsumer extends StatelessWidget {
+  const ZypayConsumer({super.key, required this.builder, this.child});
   final Widget Function(BuildContext context, PaymentState state, Widget? child)
       builder;
   final Widget? child;
-
-  const ZypayConsumer({super.key, required this.builder, this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -251,16 +247,15 @@ class ZypayConsumer extends StatelessWidget {
 
 /// Selector widget for ZypayProvider
 class ZypaySelector<T> extends StatelessWidget {
-  final T Function(PaymentState state) selector;
-  final Widget Function(BuildContext context, T value, Widget? child) builder;
-  final Widget? child;
-
   const ZypaySelector({
     super.key,
     required this.selector,
     required this.builder,
     this.child,
   });
+  final T Function(PaymentState state) selector;
+  final Widget Function(BuildContext context, T value, Widget? child) builder;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {

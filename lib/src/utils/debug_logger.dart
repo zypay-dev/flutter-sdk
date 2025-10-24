@@ -150,11 +150,10 @@ class DebugLogger {
 
 /// Performance timer for measuring operation duration
 class PerformanceTimer {
+  PerformanceTimer(this.logger, this.operation) : startTime = DateTime.now();
   final DebugLogger logger;
   final String operation;
   final DateTime startTime;
-
-  PerformanceTimer(this.logger, this.operation) : startTime = DateTime.now();
 
   /// End the timer and log the duration
   void end([dynamic data]) {

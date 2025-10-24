@@ -5,21 +5,6 @@ import 'debug_config.dart';
 
 /// Configuration interface for Zypay SDK
 class ZypayConfig {
-  /// API token for authentication
-  final String token;
-
-  /// API host URL
-  final String hostUrl;
-
-  /// Request timeout duration (default: 30 seconds)
-  final Duration timeout;
-
-  /// Number of retry attempts (default: 3)
-  final int retryAttempts;
-
-  /// Debug configuration
-  final DebugConfig debug;
-
   const ZypayConfig({
     required this.token,
     this.hostUrl = 'https://api.zypay.app',
@@ -45,6 +30,21 @@ class ZypayConfig {
     this.retryAttempts = 3,
     this.debug = const DebugConfig.minimal(),
   });
+
+  /// API token for authentication
+  final String token;
+
+  /// API host URL
+  final String hostUrl;
+
+  /// Request timeout duration (default: 30 seconds)
+  final Duration timeout;
+
+  /// Number of retry attempts (default: 3)
+  final int retryAttempts;
+
+  /// Debug configuration
+  final DebugConfig debug;
 
   /// Copy with updated fields
   ZypayConfig copyWith({
@@ -80,9 +80,5 @@ class ZypayConfig {
 ZypayConfig createDefaultConfig(String token) {
   return ZypayConfig(
     token: token,
-    hostUrl: 'https://api.zypay.app',
-    timeout: const Duration(seconds: 30),
-    retryAttempts: 3,
-    debug: kDefaultDebugConfig,
   );
 }

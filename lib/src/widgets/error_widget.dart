@@ -6,16 +6,15 @@ import '../core/types/payment_types.dart';
 
 /// Widget for displaying payment errors
 class PaymentErrorWidget extends StatelessWidget {
-  final PaymentError error;
-  final VoidCallback? onRetry;
-  final VoidCallback? onClose;
-
   const PaymentErrorWidget({
     super.key,
     required this.error,
     this.onRetry,
     this.onClose,
   });
+  final PaymentError error;
+  final VoidCallback? onRetry;
+  final VoidCallback? onClose;
 
   @override
   Widget build(BuildContext context) {
@@ -65,13 +64,13 @@ class PaymentErrorWidget extends StatelessWidget {
                 if (onClose != null)
                   OutlinedButton(
                     onPressed: onClose,
-                    child: const Text('Close'),
                     style: OutlinedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(
                         horizontal: 24,
                         vertical: 12,
                       ),
                     ),
+                    child: const Text('Close'),
                   ),
               ],
             ),

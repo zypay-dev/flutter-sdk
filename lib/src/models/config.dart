@@ -36,12 +36,6 @@ class DebugConfig {
   factory DebugConfig.fromBool(bool enabled) {
     return DebugConfig(
       enabled: enabled,
-      level: LogLevel.info,
-      timestamps: true,
-      includeComponent: true,
-      logNetwork: true,
-      logState: true,
-      logPerformance: false,
     );
   }
 
@@ -72,12 +66,6 @@ class DebugConfig {
   /// Default debug configuration
   static const DebugConfig defaultConfig = DebugConfig(
     enabled: true,
-    level: LogLevel.info,
-    timestamps: true,
-    includeComponent: true,
-    logNetwork: true,
-    logState: true,
-    logPerformance: false,
   );
 
   DebugConfig copyWith({

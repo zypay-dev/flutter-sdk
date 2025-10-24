@@ -7,14 +7,6 @@ import '../core/types/transaction_types.dart';
 
 /// Widget for selecting blockchain and package options
 class OptionSelectionWidget extends StatefulWidget {
-  final List<BlockchainType> blockchains;
-  final List<Package> packages;
-  final List<Transaction>? recentTransactions;
-  final Future<void> Function(
-    BlockchainType blockchain,
-    PackageName? packageName,
-  ) onSelectBlockchain;
-
   const OptionSelectionWidget({
     super.key,
     required this.blockchains,
@@ -22,6 +14,13 @@ class OptionSelectionWidget extends StatefulWidget {
     this.recentTransactions,
     required this.onSelectBlockchain,
   });
+  final List<BlockchainType> blockchains;
+  final List<Package> packages;
+  final List<Transaction>? recentTransactions;
+  final Future<void> Function(
+    BlockchainType blockchain,
+    PackageName? packageName,
+  ) onSelectBlockchain;
 
   @override
   State<OptionSelectionWidget> createState() => _OptionSelectionWidgetState();

@@ -6,10 +6,9 @@ import '../models/config.dart';
 
 /// Debug logger class for component-specific logging
 class DebugLogger {
+  DebugLogger(this.config, this.componentName);
   final DebugConfig config;
   final String componentName;
-
-  DebugLogger(this.config, this.componentName);
 
   /// Check if should log based on level
   bool _shouldLog(LogLevel level) {
@@ -157,11 +156,10 @@ class DebugLogger {
 
 /// Performance timer for measuring operation duration
 class PerformanceTimer {
+  PerformanceTimer(this.logger, this.operation) : startTime = DateTime.now();
   final DebugLogger logger;
   final String operation;
   final DateTime startTime;
-
-  PerformanceTimer(this.logger, this.operation) : startTime = DateTime.now();
 
   /// End the timer and log the duration
   void end() {
@@ -219,7 +217,7 @@ bool _isSensitiveField(String fieldName) {
     'mnemonic',
   ];
 
-  return sensitiveFields.any((field) => lowerField.contains(field));
+  return sensitiveFields.any(lowerField.contains);
 }
 
 /// Create a debug logger instance

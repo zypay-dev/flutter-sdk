@@ -5,9 +5,8 @@ import 'package:flutter/material.dart';
 
 /// Simple loading widget with optional message
 class LoadingWidget extends StatelessWidget {
-  final String? message;
-
   const LoadingWidget({super.key, this.message});
+  final String? message;
 
   @override
   Widget build(BuildContext context) {
