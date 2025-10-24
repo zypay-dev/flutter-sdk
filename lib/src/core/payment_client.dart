@@ -327,7 +327,7 @@ class PaymentClient {
     Timer? timeout;
     timeout = Timer(config.timeout, () {
       if (!completer.isCompleted) {
-        final error = const PaymentError(
+        const error = PaymentError(
           code: 'TIMEOUT_ERROR',
           message: 'Request timed out. Please try again.',
           retryable: true,

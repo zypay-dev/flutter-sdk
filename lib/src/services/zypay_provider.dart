@@ -97,7 +97,7 @@ class ZypayConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<PaymentState>(
-      builder: (context, state, child) => builder(context, state, child),
+      builder: builder,
       child: child,
     );
   }

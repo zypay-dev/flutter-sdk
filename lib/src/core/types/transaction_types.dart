@@ -183,15 +183,15 @@ enum TransactionType {
 }
 
 /// Transaction from information
-class TransactionFrom extends Equatable {
-  const TransactionFrom({
+class TransactionUser extends Equatable {
+  const TransactionUser({
     required this.email,
     required this.address,
     required this.userWallet,
   });
 
-  factory TransactionFrom.fromJson(Map<String, dynamic> json) =>
-      TransactionFrom(
+  factory TransactionUser.fromJson(Map<String, dynamic> json) =>
+      TransactionUser(
         email: json['email'] as String,
         address: json['address'] as String,
         userWallet: UserWallet.fromJson(
@@ -214,10 +214,11 @@ class TransactionFrom extends Equatable {
 }
 
 /// Transaction to information
-class TransactionTo extends Equatable {
-  const TransactionTo({required this.walletAddress, this.accountWallet});
+class TransactionAccount extends Equatable {
+  const TransactionAccount({required this.walletAddress, this.accountWallet});
 
-  factory TransactionTo.fromJson(Map<String, dynamic> json) => TransactionTo(
+  factory TransactionAccount.fromJson(Map<String, dynamic> json) =>
+      TransactionAccount(
         walletAddress: json['wallet_address'] as String,
         accountWallet: json['account_wallet'] != null
             ? AccountWallet.fromJson(
@@ -241,8 +242,8 @@ class TransactionTo extends Equatable {
 class Transaction extends Equatable {
   const Transaction({
     required this.id,
-    required this.from,
-    required this.to,
+    required this.user,
+    required this.account,
     required this.type,
     required this.blockchain,
     required this.timeout,
@@ -254,8 +255,9 @@ class Transaction extends Equatable {
 
   factory Transaction.fromJson(Map<String, dynamic> json) => Transaction(
         id: json['id'] as String,
-        from: TransactionFrom.fromJson(json['from'] as Map<String, dynamic>),
-        to: TransactionTo.fromJson(json['to'] as Map<String, dynamic>),
+        user: TransactionUser.fromJson(json['user'] as Map<String, dynamic>),
+        account: TransactionAccount.fromJson(
+            json['account'] as Map<String, dynamic>),
         type: TransactionType.fromString(json['type'] as String),
         blockchain: BlockchainType.fromString(json['blockchain'] as String),
         timeout: json['timeout'] as int,
@@ -265,8 +267,8 @@ class Transaction extends Equatable {
         updatedAt: DateTime.parse(json['updated_at'] as String),
       );
   final String id;
-  final TransactionFrom from;
-  final TransactionTo to;
+  final TransactionUser user;
+  final TransactionAccount account;
   final TransactionType type;
   final BlockchainType blockchain;
   final int timeout;
@@ -277,8 +279,8 @@ class Transaction extends Equatable {
 
   Map<String, dynamic> toJson() => {
         'id': id,
-        'from': from.toJson(),
-        'to': to.toJson(),
+        'user': user.toJson(),
+        'account': account.toJson(),
         'type': type.name,
         'blockchain': blockchain.value,
         'timeout': timeout,
@@ -304,8 +306,8 @@ class Transaction extends Equatable {
   @override
   List<Object?> get props => [
         id,
-        from,
-        to,
+        user,
+        account,
         type,
         blockchain,
         timeout,

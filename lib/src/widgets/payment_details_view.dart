@@ -58,9 +58,8 @@ class PaymentDetailsView extends StatelessWidget {
           ],
         ),
         child: QrImageView(
-          data: transaction.to.walletAddress,
-          version: QrVersions.auto,
-          size: 200.0,
+          data: transaction.account.walletAddress,
+          size: 200,
           backgroundColor: Colors.white,
         ),
       ),
@@ -89,7 +88,7 @@ class PaymentDetailsView extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  transaction.to.walletAddress,
+                  transaction.account.walletAddress,
                   style: const TextStyle(
                     fontSize: 14,
                     fontFamily: 'monospace',
@@ -101,7 +100,7 @@ class PaymentDetailsView extends StatelessWidget {
                 icon: const Icon(Icons.copy, size: 20),
                 onPressed: () => _copyToClipboard(
                   context,
-                  transaction.to.walletAddress,
+                  transaction.account.walletAddress,
                   'Address',
                 ),
                 padding: EdgeInsets.zero,
@@ -194,7 +193,6 @@ class PaymentDetailsView extends StatelessWidget {
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           color: _getStatusColor(transaction.status),
-          width: 1,
         ),
       ),
       child: Row(

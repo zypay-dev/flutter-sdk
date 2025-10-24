@@ -13,12 +13,8 @@ class MyApp extends StatelessWidget {
     return ZypayProvider(
       config: const ZypayConfig(
         token: 'your-api-token-here', // Replace with your actual token
-        hostUrl: 'https://api.zypay.app',
         debug: DebugConfig(
           enabled: true,
-          level: DebugLevel.info,
-          logNetwork: true,
-          logState: true,
         ),
       ),
       child: MaterialApp(

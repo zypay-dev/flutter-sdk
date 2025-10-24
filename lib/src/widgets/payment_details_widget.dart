@@ -9,14 +9,13 @@ import '../core/types/transaction_types.dart';
 
 /// Widget for displaying payment details and QR code
 class PaymentDetailsWidget extends StatefulWidget {
-  final Transaction transaction;
-  final int expiryMinutes;
-
   const PaymentDetailsWidget({
     super.key,
     required this.transaction,
     required this.expiryMinutes,
   });
+  final Transaction transaction;
+  final int expiryMinutes;
 
   @override
   State<PaymentDetailsWidget> createState() => _PaymentDetailsWidgetState();
@@ -134,8 +133,7 @@ class _PaymentDetailsWidgetState extends State<PaymentDetailsWidget> {
                 borderRadius: BorderRadius.circular(12),
               ),
               child: QrImageView(
-                data: widget.transaction.to.walletAddress,
-                version: QrVersions.auto,
+                data: widget.transaction.account.walletAddress,
                 size: 250,
                 backgroundColor: Colors.white,
               ),
@@ -168,7 +166,7 @@ class _PaymentDetailsWidgetState extends State<PaymentDetailsWidget> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text(
-                      widget.transaction.to.walletAddress,
+                      widget.transaction.account.walletAddress,
                       style: const TextStyle(
                         fontSize: 14,
                         fontFamily: 'monospace',
@@ -182,7 +180,8 @@ class _PaymentDetailsWidgetState extends State<PaymentDetailsWidget> {
                   icon: const Icon(Icons.copy),
                   onPressed: () {
                     Clipboard.setData(
-                      ClipboardData(text: widget.transaction.to.walletAddress),
+                      ClipboardData(
+                          text: widget.transaction.account.walletAddress),
                     );
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
@@ -231,7 +230,7 @@ class _PaymentDetailsWidgetState extends State<PaymentDetailsWidget> {
             const Divider(height: 24),
             _buildDetailRow(
               'Transaction ID',
-              widget.transaction.id.substring(0, 16) + '...',
+              '${widget.transaction.id.substring(0, 16)}...',
             ),
           ],
         ),
